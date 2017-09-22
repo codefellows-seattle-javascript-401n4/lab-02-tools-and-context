@@ -1,15 +1,14 @@
 'use strict';
 const fp = module.exports = {};
-let numbers = [2,6,13,20,55];
-let mapwith = (a=>a*2);
+
 fp.mapCall = ((list, callback) => Array.prototype.map.call(list, callback));
-fp.mapApply = ((list, callback) => Array.prototype.apply(list, callback));
-fp.mapBind = function(list, callback){
-  let method = function(list, callback) {
-    return Array.prototype.filter.call(this.n, this.cb);};
-  let obj = {n:numbers, cb:mapwith};
-  return method.bind(obj);
-};
+fp.mapApply = ((list, callback) => Array.prototype.map.apply(list, callback));
+// fp.mapBind = function(list, callback){
+//   let method = function(list, callback) {
+//     return Array.prototype.filter.call(this.n, this.cb);};
+//   let obj = {n:numbers, cb:mapwith};
+//   return method.bind(obj);
+// };
 
 // fp.mapBind =(() => Array.prototype.filter.call(this.n, this.cb)).bind({n:numbers, cb:mapwith});
 // console.log(fp.mapBind);

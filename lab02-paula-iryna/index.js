@@ -1,3 +1,12 @@
 'use strict';
 const fp = require('./lib/fp.js');
-console.log(fp.mapBind([1,2,3], a=>a+3));
+let numbers = [2,6,13,20,55];
+let mapwith = (a=>a>7);
+// console.log(fp.mapBind([1,2,3], a=>a+3));
+console.log(fp.mapCall(numbers,mapwith));
+// console.log(fp.mapApply(numbers,[mapwith]));
+console.log(fp.filterCall(numbers,mapwith));
+console.log(fp.filterApply(numbers,[mapwith]));
+console.log(fp.reduceCall(numbers, (acc, current)=>acc+current));
+console.log(fp.concatApply(numbers,[3]));
+console.log(fp.spliceApply(numbers,[3]));
