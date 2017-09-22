@@ -1,4 +1,5 @@
 let values = [1,2,3];
+let values2 = [4,5,6];
 let badValues = ['string', 2, 3];
 let cb = n => n * 2;
 
@@ -70,12 +71,60 @@ module.exports = {
         if ((Array.isArray(values)) && testType('number', values)) returnValue = Array.prototype.filter.apply(values, cb);
         return returnValue;        
     },
-    callReduce: () => {},
-    bindReduce: function(){}.bind(),
-    applyReduce: () => {},
-    callConcat: () => {},
-    bindConcat: function(){}.bind(),
-    applyConcat: () => {},
+    callReduce: (values, cb) => {
+        let returnValue = null;
+        ((Array.isArray(values)) && testType('number', values)) ? returnValue = 
+            Array.prototype.reduce.call(values, cb) : 
+            returnValue = null;
+
+        return returnValue;
+    },
+    bindReduce: function(bool, cb){
+        let returnValue = null;
+        
+        if (bool) {
+            (testType('number', this.values) === true) ?
+                returnValue = Array.prototype.reduce.call(this.values, cb) :
+                returnValue = null;
+        } else {
+            (testType('number', this.badValues) === true) ?
+                returnValue = Array.prototype.reduce.call(this.values, cb) :
+                returnValue = null;
+        } 
+            
+        return returnValue;
+    }.bind({values: values, badValues: badValues}),
+    applyReduce: (values, cb) => {
+        let returnValue = null;
+        if ((Array.isArray(values)) && testType('number', values)) returnValue = Array.prototype.reduce.apply(values, cb);
+        return returnValue;
+
+    },
+    callConcat: (values1, values2) => {
+        let returnValue = null;
+        ((Array.isArray(values1)) && (Array.isArray(values2))) ? returnValue = Array.prototype.concat.call(values1, values2) : 
+            returnValue = null;
+        return returnValue;
+    },
+    bindConcat: function(bool){
+        let returnValue = null;
+
+        if (bool) {
+            ((Array.isArray(this.values)) && (Array.isArray(this.values2) && testType('number', this.values) && testType('number', this.values2))) ? returnValue = Array.prototype.concat.apply(this.values, this.values2) : 
+                returnValue = null;
+        } else {
+            ((Array.isArray(this.values)) && (Array.isArray(this.badValues) && testType('number', this.values) && testType('number', this.badValues))) ? returnValue = Array.prototype.concat.apply(this.values, this.values2) : 
+                returnValue = null;
+        }
+
+        return returnValue;
+    }.bind({values: values, badValues: badValues, values2: values2}),
+    applyConcat: (values1, values2) => {
+        let returnValue = null;
+        ((Array.isArray(values1)) && (Array.isArray(values2))) ? returnValue = Array.prototype.concat.apply(values1, values2) : 
+            returnValue = null;
+        return returnValue;
+    },
     callSplice: () => {},
     bindSplice: function(){}.bind(),
     applySplice: () => {},

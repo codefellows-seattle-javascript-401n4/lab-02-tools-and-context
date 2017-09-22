@@ -3,7 +3,7 @@
 const fp = require('../lib/fp.js');
 const expect = require("expect");
 
-// describe('FP Map: ß', () => {
+// describe('FP Map: ', () => {
 
 //     it('applyMap should correctly double every value of array',() => {
 //         expect(fp.applyMap([1,2,3], [(n) => n * 2])).toEqual([2,4,6]);
@@ -51,4 +51,57 @@ describe('FP Filter: ', () => {
     // it('applyFilter should return null because we entered a string',() => {
     //     expect(fp.applyFilter([1,2,'string'], [n => n])).toEqual(null);
     // });
+});
+
+describe('FP Reduce:', () => {
+
+    // it('callReduce should return the total of [1,2,3]', () => {
+    //     expect(fp.callReduce([1,2,3], (prev, curr) => curr + prev, 0)).toEqual(6);
+    // });
+
+    // it('callReduce should return null because you cannot add numbers to a string', () => {
+    //     expect(fp.callReduce(['hello',2,3], (prev, curr) => curr + prev, 0)).toEqual(null);
+    // });
+
+    // it('applyReduce should return the total of [1,2,3]', () => {
+    //     expect(fp.applyReduce([1,2,3], [(prev, curr) => curr + prev, 0])).toEqual(6);
+    // });
+
+    // it('applyReduce should return null because you cannot add numbers to a string', () => {
+    //     expect(fp.applyReduce(['hello',2,3], [(prev, curr) => curr + prev, 0])).toEqual(null);
+    // });
+
+    // it('bindReduce should return total of [1,2,3]', ()=> {
+    //     expect(fp.bindReduce(true, (prev, curr) => prev + curr, 0)).toBe(6);
+    // });
+
+    // it('bindReduce should null when passing in a string with numbers', ()=> {
+    //     expect(fp.bindReduce(false, (prev, curr) => prev + curr, 0)).toBe(null);
+    // });
+});
+
+describe('FP Concat: ', () => {
+    it('callConcat should return [1,2,3,4,5,6]',() => {
+        expect(fp.callConcat([1,2,3],[4,5,6])).toEqual([1,2,3,4,5,6]);
+    });
+
+    it('callConcat should return null because user didnot enter array',() => {
+        expect(fp.callConcat(null, [1,2,3])).toEqual(null);
+    });
+
+    it('applyConcat should return [1,2,3,4,5,6]',() => {
+        expect(fp.applyConcat([1,2,3],[4,5,6])).toEqual([1,2,3,4,5,6]);
+    });
+
+    it('applyConcat should return null because only 1 array was passed in',() => {
+        expect(fp.applyConcat([1,2,3],null)).toEqual(null);
+    });
+
+    it('bindConcat should return [1,2,3,4,5,6] because both binded arrays are valid',() => {
+        expect(fp.bindConcat(true)).toEqual([1,2,3,4,5,6]);
+    });
+
+    it('bindConcat should return null because we bound an array that contain ',() => {
+        expect(fp.bindConcat(false)).toEqual(null);
+    });
 });
