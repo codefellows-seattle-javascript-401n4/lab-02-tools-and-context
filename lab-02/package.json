@@ -2,10 +2,10 @@
   "name": "lab-david",
   "version": "1.0.0",
   "description": "Standard Package File for Labs",
-  "main": "/__test__/test.js",
+  "main": "/test/test.js",
   "directories": {
     "lib": "lib",
-    "test": "__test__"
+    "test": "test"
   },
   "scripts": {
     "test": "mocha"
