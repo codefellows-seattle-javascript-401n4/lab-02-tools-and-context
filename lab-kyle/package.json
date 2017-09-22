@@ -1,0 +1,22 @@
+{
+  "name": "lab-kyle",
+  "version": "0.0.1",
+  "description": "Package for lab-02",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krichey15/lab-02-tools-and-context.git"
+  },
+  "author": "Kyle Richey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krichey15/lab-02-tools-and-context/issues"
+  },
+  "homepage": "https://github.com/krichey15/lab-02-tools-and-context#readme"
+}
