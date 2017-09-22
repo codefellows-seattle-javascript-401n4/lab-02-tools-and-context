@@ -7,7 +7,7 @@ const arrayFunctions = require('../lib/fp.js');
   describe('Array call function maker', function(){
     it('takes an array method and makes a new function using call', function(){
       let result = arrayFunctions.arrayCall('map')
-      expect(result).to.be.an('function');
+      expect(typeof result).toEqual('function');
     })
   })
 
