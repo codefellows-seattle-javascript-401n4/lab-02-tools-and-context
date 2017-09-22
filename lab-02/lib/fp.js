@@ -2,6 +2,7 @@ let values = [1,2,3];
 let badValues = ['string', 2, 3];
 let cb = n => n * 2;
 
+
 let testType = (test, values) => {
     let isKosher = true;
     values.forEach(function(element) {
@@ -42,16 +43,40 @@ module.exports = {
         if ((Array.isArray(values)) && testType('number', values)) returnValue = Array.prototype.map.apply(values, cb);
         return returnValue;
     },
-    callFilter: () => {},
-    bindFilter: () => {},
-    applyFilter: () => {},
+    callFilter: (values, cb) => {
+        let returnValue = null;
+        (testType('number', values)) ? 
+            returnValue = Array.prototype.filter.call(values, cb) :
+            returnValue = null;
+        return returnValue;
+    },
+    bindFilter: function(bool, cb) {
+        let returnValue = null;
+        
+        if (bool) {
+            (testType('number', this.values) === true) ?
+                returnValue = Array.prototype.map.call(this.values, cb) :
+                returnValue = null;
+        } else {
+            (testType('number', this.badValues) === true) ?
+                returnValue = Array.prototype.map.call(this.values, cb) :
+                returnValue = null;
+        } 
+            
+        return returnValue;
+    }.bind({values: values, badValues: badValues}),
+    applyFilter: (values, cb) => {
+        let returnValue = null;
+        if ((Array.isArray(values)) && testType('number', values)) returnValue = Array.prototype.filter.apply(values, cb);
+        return returnValue;        
+    },
     callReduce: () => {},
-    bindReduce: () => {},
+    bindReduce: function(){}.bind(),
     applyReduce: () => {},
     callConcat: () => {},
-    bindConcat: () => {},
+    bindConcat: function(){}.bind(),
     applyConcat: () => {},
     callSplice: () => {},
-    bindSplice: () => {},
+    bindSplice: function(){}.bind(),
     applySplice: () => {},
 };
