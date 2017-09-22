@@ -1,0 +1,17 @@
+module.exports = {
+    callMap: () => {},
+    bindMap: () => {},
+    applyMap: () => {},
+    callFilter: () => {},
+    bindFilter: () => {},
+    applyFilter: () => {},
+    callReduce: () => {},
+    bindReduce: () => {},
+    applyReduce: () => {},
+    callConcat: () => {},
+    bindConcat: () => {},
+    applyConcat: () => {},
+    callSplice: () => {},
+    bindSplice: () => {},
+    applySplice: () => {},
+};
