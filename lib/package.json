@@ -1,0 +1,16 @@
+{
+  "name": "ashkaan-lab02",
+  "version": "0.0.1",
+  "description": "ashkaan's work for lab02",
+  "main": "fp.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "ashkaan",
+  "license": "ISC",
+  "dependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
+u
