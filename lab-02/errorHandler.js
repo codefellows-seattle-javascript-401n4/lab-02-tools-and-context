@@ -1,3 +1,5 @@
+// wrote this as a bonus for lab 2
+
 let errorSeverity = {
     EvalError: 1,
     RangeError: 1,
@@ -7,26 +9,30 @@ let errorSeverity = {
     URIError: 2,
 };
 
-module.exports = {
-    lightError: (err) => {
-        return {
-            timestamp: new Date(),
-            message: err.message,
-            file: err.file,
-            position: err.column,
-            name: err.name,
-            severity: errorSeverity[err.name],
-        };
-    },
-    heavyError: (err) => {
-        return {
-            devMessage: 'You really goofed this time',
-            timestamp: new Date(),
-            message: err.message,
-            file: err.file,
-            position: err.column,
-            name: err.name,
-            severity: errorSeverity[err.name],
-        };
-    },
+let lightError = (err) => {
+    return {
+        timestamp: new Date(),
+        message: err.message,
+        file: err.file,
+        position: err.column,
+        name: err.name,
+        severity: errorSeverity[err.name],
+    };
+};
+
+let heavyError = () => {
+    return {
+        devMessage: 'You really goofed this time',
+        timestamp: new Date(),
+        message: err.message,
+        file: err.file,
+        position: err.column,
+        name: err.name,
+        severity: errorSeverity[err.name],
+    };
+};
+
+
+module.exports = (err) =>  {
+    return (errorSeverity[err.name] > 1) ? lightError(err) : heavyError(err);
 };
