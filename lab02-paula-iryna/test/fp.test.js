@@ -7,7 +7,7 @@ const numbers = [0,2,4];
 //checking  all on .map:
 describe('mapCall', function() {
   it('should return [2,4,6] when numbers=[0,2,4] and mapwith is a=>a+2', function() {
-    let result = fp.mapCall([0,2,4],a=>a+2);
+    let result = fp.mapCall(numbers,a=>a+2);
     expect(result).toEqual([2,4,6]);
   });
 });
@@ -15,7 +15,7 @@ describe('mapCall', function() {
 
 describe('mapApply', function(){
   it('should return [2,4,6] when numbers=[0,2,4] and rule is [(a=>a+2)]', function(){
-    let result = fp.mapApply(numbers,[(a=>a+2)]);
+    let result = fp.mapApply(numbers,[a=>a+2]);
     expect(result).toEqual([2,4,6]);
   });
 });
@@ -23,7 +23,7 @@ describe('mapApply', function(){
 
 describe('filterCall', function() {
   it('should return [4] when numbers=[0,2,4] and mapwith is (a=>a>2)', function(){
-    let result = fp.filterCall([0,2,4],(a=>a>2));
+    let result = fp.filterCall(numbers,(a=>a>2));
     expect(result).toEqual([4]);
   });
 });
@@ -31,7 +31,7 @@ describe('filterCall', function() {
 
 describe('filterApply', function() {
   it('should return [4] when numbers=[0,2,4] and mapwith is (a=>a>2)', function(){
-    let result = fp.filterCall([0,2,4],[(a=>a>2)]);
+    let result = fp.filterApply(numbers,[a=>a>2]);
     expect(result).toEqual([4]);
   });
 });
@@ -47,7 +47,7 @@ describe('reduceCall', function(){
 
 describe('reduceApply', function(){
   it('should return 6 when passed [0,2,4]', function(){
-    let result = fp.reduceCall(numbers, [(acc, current)=>acc+current]);
+    let result = fp.reduceApply(numbers, [(acc, current)=>acc+current]);
     expect(result).toEqual(6);
   });
 });
