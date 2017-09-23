@@ -71,8 +71,8 @@ describe('reduce using apply', () => {
 });
 
 describe('reduce using bind', () => {
-  it('should return 20', () => {
-    expect(fp.reduceBind([2,4,6,8], (a,c) => a + c, 0)).toEqual(20);
+  it('should return 10', () => {
+    expect(fp.reduceBind([1,2,3,4],(a,c) => a + c, 0)).toEqual(10);
   });
 });
 

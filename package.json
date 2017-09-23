@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "![cf](https://i.imgur.com/7v5ASc8.png) lab-02-tools-and-context ======",
   "main": "index.js",
-  "scripts": {
+  "scripts": { 
+    "start": "node index.js",
+    "lint": "eslint",
     "test": "mocha"
+
   },
   "repository": {
     "type": "git",
