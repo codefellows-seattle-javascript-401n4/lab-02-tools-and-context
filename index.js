@@ -8,7 +8,6 @@ let mapwith = n => n*2;
 let reducewith = (prev, curr) => prev + curr;
 let concatwith = numbers;
 let splicewith = [1, 1, 'heyo'];
-
 for (let functionName in arrayFunctions.map) {
   console.log('map', functionName, arrayFunctions.map[functionName](numbers, mapwith));
 }
