@@ -11,4 +11,3 @@ fp.reduce (list, args) => Array.prototype.reduce.apply(list, args);
 fp.concat = (list1, list2) => Array.prototype.concat.call(list1, list2);
 
 fp.splice = (list, args) => Array.prototype.splice.apply(list, args);
-
