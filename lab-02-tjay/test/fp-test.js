@@ -49,3 +49,9 @@ describe('splice test', () => {
     expect(arr).toEqual([1, 2, 3, 'four', 'five']);
   });
 });
+
+describe('bind test', () => {
+  it('should return [2,3]', () => {
+    expect(fp.splice([1, 2], [1, 2])).toEqual([2,3]);
+  });
+});

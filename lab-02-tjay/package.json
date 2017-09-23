@@ -4,9 +4,6 @@
   "description": "Lab for TJay",
   "main": "index.js",
   "scripts": {
-    "test": "test"
-  },
-  "scripts": {
     "test": "mocha"
   },
   "author": "T.Jay",
