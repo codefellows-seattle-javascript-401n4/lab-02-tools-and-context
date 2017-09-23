@@ -10,6 +10,6 @@ functions.mapCall = function(array, callback){
 
 functions.mapApply = function(array, callback){
 
-  return Array.prototype.map.apply();
-  
+  return Array.prototype.map.apply(array, callback);
+
 };
