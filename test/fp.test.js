@@ -3,12 +3,11 @@
 const fp = require('../lib/fp.js');
 const expect = require('expect');
 
-// helper arrays
+// helper arrays & functions
 
 let goodNums = [1,2,3,4,5,6];
 let shitNums = [6,9, 'poop'];
 let moreNums = [7,8,9];
-
 
 // map tests
 
@@ -84,5 +83,81 @@ describe('fp.filterApply', function(){
 describe('fp.filterApply', function(){
     it('should return null if the array given isn\'t all numbers', function(){
         expect(fp.filterApply(shitNums, [n => n%2 ===0])).toBe(null);
+    });
+});
+
+// reduce tests
+
+describe('fp.reduceCall', function(){
+    it('should take an array and return to you the sum of the numbers', function(){
+        expect(fp.reduceCall(goodNums, (acc, num) => acc + num)).toEqual(21);
+    });
+});
+
+describe('fp.reduceCall', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.reduceCall(shitNums, (acc, num) => acc + num)).toBe(null);
+    });
+});
+
+describe('fp.reduceBind', function(){
+    it('should take an array and return to you the sum of the numbers', function(){
+        expect(fp.reduceBind(goodNums, (acc, num) => acc + num)).toEqual(21);
+    });
+});
+
+describe('fp.reduceBind', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.reduceBind(shitNums, (acc, num) => acc + num)).toBe(null);
+    });
+});
+
+describe('fp.reduceApply', function(){
+    it('should take an array and return to you the sum of the numbers', function(){
+        expect(fp.reduceApply(goodNums, [(acc, num) => acc + num])).toEqual(21);
+    });
+});
+
+describe('fp.reduceApply', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.reduceApply(shitNums, [(acc, num) => acc + num])).toBe(null);
+    });
+});
+
+// concat tests
+
+describe('fp.concatCall', function(){
+    it('should take two arrays and combine them into one array', function(){
+        expect(fp.concatCall(goodNums, moreNums)).toEqual([1,2,3,4,5,6,7,8,9]);
+    });
+});
+
+describe('fp.concatCall', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.concatCall(goodNums, shitNums)).toBe(null);
+    });
+});
+
+describe('fp.concatBind', function(){
+    it('should take two arrays and combine them into one array', function(){
+        expect(fp.concatBind(goodNums, moreNums)).toEqual([1,2,3,4,5,6,7,8,9]);
+    });
+});
+
+describe('fp.concatBind', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.concatBind(goodNums, shitNums)).toBe(null);
+    });
+});
+
+describe('fp.concatApply', function(){
+    it('should take two arrays and combine them into one array', function(){
+        expect(fp.concatApply(goodNums, moreNums)).toEqual([1,2,3,4,5,6,7,8,9]);
+    });
+});
+
+describe('fp.concatApply', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.concatApply(goodNums, shitNums)).toBe(null);
     });
 });
