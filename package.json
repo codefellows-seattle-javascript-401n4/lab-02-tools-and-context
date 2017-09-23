@@ -1,0 +1,29 @@
+{
+  "name": "lab-02-tools-and-context",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) lab-02-tools-and-context ======",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "eslint":"eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarDavis/lab-02-tools-and-context.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarDavis/lab-02-tools-and-context/issues"
+  },
+  "homepage": "https://github.com/DarDavis/lab-02-tools-and-context#readme",
+  "dependencies": {
+    "eslint": "^4.7.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.3"
+  }
+}
