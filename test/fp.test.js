@@ -161,3 +161,42 @@ describe('fp.concatApply', function(){
         expect(fp.concatApply(goodNums, shitNums)).toBe(null);
     });
 });
+
+// splice tests
+
+describe('fp.spliceCall', function(){
+    it('should give just the first 3 index items of an array', function(){
+        expect(fp.spliceCall([1,2,3,4,5,6], 0, 3)).toEqual([1,2,3]);
+    });
+});
+
+describe('fp.spliceCall', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.spliceCall(shitNums, 0, 3)).toBe(null);
+    });
+});
+
+
+describe('fp.spliceBind', function(){
+    it('should give just the first 3 index items of an array', function(){
+        expect(fp.spliceBind([1,2,3,4,5,6], 0, 3)).toEqual([1,2,3]);
+    });
+});
+
+describe('fp.spliceBind', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.spliceBind(shitNums, 0, 3)).toBe(null);
+    });
+});
+
+describe('fp.spliceApply', function(){
+    it('should give just the first 3 index items of an array', function(){
+        expect(fp.spliceApply([1,2,3,4,5,6], [0, 3])).toEqual([1,2,3]);
+    });
+});
+
+describe('fp.spliceApply', function(){
+    it('should return null if the array given isn\'t all numbers', function(){
+        expect(fp.spliceApply(shitNums, [0, 3])).toBe(null);
+    });
+});
