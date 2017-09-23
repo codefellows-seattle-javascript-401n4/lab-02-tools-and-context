@@ -4,13 +4,17 @@ let badValues = ['string', 2, 3];
 let cb = n => n * 2;
 
 
-let testType = (test, values) => {
+let testType = (test, val) => {
     let isKosher = true;
-    values.forEach(function(element) {
-        if (typeof element !== test) {
-            isKosher = false;
-        }
-    }, this);   
+    if (val[1]) {
+        val.forEach(function(element) {
+            if (typeof element !== test) {
+                isKosher = false;
+            }
+        }, this);
+    } else {
+        if (typeof val !== test) isKosher = false;
+    }  
     return isKosher;
 };
 
@@ -125,7 +129,28 @@ module.exports = {
             returnValue = null;
         return returnValue;
     },
-    callSplice: () => {},
-    bindSplice: function(){}.bind(),
-    applySplice: () => {},
+    callSplice: (values, index, pos) => {
+        let returnValue = null;
+        (Array.isArray(values)) ?
+            returnValue = Array.prototype.splice.call(values, index, pos): 
+            returnValue = null;
+        return returnValue;
+    },
+    bindSplice: function(index, pos){
+        let returnValue = null;
+
+
+        ((testType('number', index)) && (testType('number', pos))) ? 
+            returnValue = Array.prototype.splice.call(this.values, index, pos) : 
+            returnValue = null;
+
+        return returnValue;
+    }.bind({values: values}),
+    applySplice: (values, index, pos) => {
+        let returnValue = null;
+        (Array.isArray(values)) ?
+            returnValue = Array.prototype.splice.apply(values, index, pos): 
+            returnValue = null;
+        return returnValue;
+    },
 };
