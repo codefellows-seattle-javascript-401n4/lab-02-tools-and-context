@@ -49,6 +49,10 @@ describe('Filter', function(){
     expect(fp.filterWithApply([ 0, 15, 1, 2, 8, 12], [a=>a<5])).toEqual([0, 1, 2]);
   });
 
+  it('bind should return correct values even with null input as it is bound in the definition', function() {
+    expect(fp.filterWithBind(null)).toEqual([0, 1]);
+  });
+
 });
 
 describe('Concat', function(){
@@ -67,6 +71,10 @@ describe('Concat', function(){
 
   it('apply should return the two arrays correctly concatenated', function() {
     expect(fp.concatWithApply([ 4, 2, 1 ], [ 8, 99 ])).toEqual([ 4, 2, 1, 8, 99 ]);
+  });
+
+  it('bind should return correct values even with null input as it is bound in the definition', function() {
+    expect(fp.concatWithBind(null)).toEqual([ 0, 15, 1, 8, 99 ]);
   });
 
 });
@@ -89,6 +97,11 @@ describe('Splice', function(){
     expect(fp.spliceWithApply([ 4, 2, 1 ], 2 )).toEqual(null);
   });
 
+  it('bind should return correct values even with null input as it is bound in the definition', function() {
+    expect(fp.spliceWithBind(null)).toEqual([ 1 ]);
+  });
+
+
 });
 
 describe('Reduce', function(){
@@ -107,6 +120,10 @@ describe('Reduce', function(){
 
   it('apply should return null because the array contains a non-number', function() {
     expect(fp.reduceWithApply([ 4, 'hi' ], (prev, curr) => curr + prev, 0)).toEqual(null);
+  });
+
+  it('bind should return correct values even with null input as it is bound in the definition', function() {
+    expect(fp.reduceWithBind(null)).toEqual(15);
   });
 
 });

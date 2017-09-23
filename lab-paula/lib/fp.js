@@ -3,11 +3,14 @@
 const fp = module.exports = {};
 
 let arr = [ 0, 15, 1 ];
-let arr2 = [ 8, 99, 10, 3, 4];
-let index = 5;
+let arr2 = [ 8, 99];
+let index = 2;
+let current = (prev, curr) => curr + prev;
 let mapwith = n => n+3;
 let filterCriteria = a => a < 13;
 
+
+//check that input is an array and that elements are numbers
 let isValidArray = (input => {
   return (!Array.isArray(input)) ? false :
    input.every(x => {return typeof x === 'number'; });
@@ -80,6 +83,6 @@ fp.reduceWithApply = (list, curr) => {
   return isValidArray(list) ? Array.prototype.reduce.apply(list, curr) : null;
 };
 
-// fp.reduceWithBind = function() {
-//   return Array.prototype.reduce.call(this.prev, this.curr);
-// }.bind({prev:total, curr:current});
+fp.reduceWithBind = function() {
+  return Array.prototype.reduce.call(this.prev, this.curr, 0);
+}.bind({prev:arr, curr:current}, 0);
