@@ -5,7 +5,6 @@ const fp = module.exports = {};
 let arr = [ 0, 15, 1 ];
 let arr2 = [ 8, 99, 10, 3, 4];
 let index = 5;
-let total, current = 0;
 let mapwith = n => n+3;
 let filterCriteria = a => a < 13;
 
@@ -84,21 +83,3 @@ fp.reduceWithApply = (list, curr) => {
 // fp.reduceWithBind = function() {
 //   return Array.prototype.reduce.call(this.prev, this.curr);
 // }.bind({prev:total, curr:current});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fp.filterWithCall(arr, a=>a<13);
-fp.filterWithApply(arr, [a=>a<13]);
