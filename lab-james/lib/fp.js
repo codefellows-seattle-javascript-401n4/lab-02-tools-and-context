@@ -40,6 +40,7 @@ functions.filterApply = function(array, callback){
   callback = Array.isArray(callback) ? callback : [callback];
 
   return Array.prototype.filter.apply(array, callback);
+
 };
 
 let filterArray = [1, 2, 3];
@@ -50,3 +51,28 @@ functions.filterBind = function(){
   return Array.prototype.filter.call(this.array, this.callback);
 
 }.bind({array: filterArray, callback: filterCB});
+
+//Reduce=========================================================================================
+
+functions.reduceCall = function(array, callback){
+
+  return Array.prototype.reduce.call(array, callback);
+
+};
+
+functions.reduceApply = function(array, callback){
+
+  callback = Array.isArray(callback) ? callback : [callback];
+
+  return Array.prototype.reduce.apply(array, callback);
+
+};
+
+let reduceArray = [1, 2, 3];
+let reduceCB = (acc, n) => acc + n;
+
+functions.reduceBind = function(){
+
+  return Array.prototype.reduce.call(this.array, this.callback);
+
+}.bind({array: reduceArray, callback: reduceCB});

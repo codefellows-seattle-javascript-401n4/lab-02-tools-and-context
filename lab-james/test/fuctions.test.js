@@ -78,3 +78,21 @@ describe('filterBind', function(){
   });
 
 });
+
+//===================================================================================================
+
+describe('reduceCall', function(){
+
+  it('reduceCall 1: calls reduce correctly', function(){
+
+    expect(fp.reduceCall([1, 2, 3], (acc, n) => acc + n)).toEqual(6);
+
+  });
+
+  it('reduceCall 2: calls reduce correctly', function(){
+
+    expect(fp.reduceCall(['red', 'blue', 'red', 'green', 'blue', 'red'], )).toEqual(['red', 'blue', 'green']);
+
+  });
+
+});
