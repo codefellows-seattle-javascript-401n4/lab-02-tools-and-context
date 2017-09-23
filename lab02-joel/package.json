@@ -1,0 +1,19 @@
+{
+  "name": "lab02-joel",
+  "version": "0.0.1",
+  "description": "Lab02-Joel",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Joel Epstein",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
