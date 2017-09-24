@@ -13,10 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/krichey15/lab-02-tools-and-context.git"
   },
-  "author": "Kyle Richey",
+  "author": "richey.kyle.i@gmail.com",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/krichey15/lab-02-tools-and-context/issues"
+  "devDependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
   },
   "homepage": "https://github.com/krichey15/lab-02-tools-and-context#readme"
 }
