@@ -1,0 +1,23 @@
+{
+  "name": "lab-02-tools-and-context",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) lab-02-tools-and-context ======",
+  "main": "fp.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanhthaoluu/lab-02-tools-and-context.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanhthaoluu/lab-02-tools-and-context/issues"
+  },
+  "homepage": "https://github.com/hanhthaoluu/lab-02-tools-and-context#readme",
+  "devDependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
