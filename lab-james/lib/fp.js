@@ -54,9 +54,9 @@ functions.filterBind = function(){
 
 //Reduce=========================================================================================
 
-functions.reduceCall = function(array, callback){
+functions.reduceCall = function(array, callback, initVal){
 
-  return Array.prototype.reduce.call(array, callback);
+  return Array.prototype.reduce.call(array, callback, initVal);
 
 };
 
