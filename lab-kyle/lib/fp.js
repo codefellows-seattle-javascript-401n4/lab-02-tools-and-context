@@ -2,46 +2,62 @@
 
 const fp = module.exports = {};
 
-// Map Function
+// Map Functions
 
-fp.newMapCall = function (list, callback){
-  return Array.prototype.map.call(list, callback);
+fp.newMapCall = function (array, callback){
+  return Array.prototype.map.call(array, callback);
 };
 
-fp.newMapApply = function (list, callback){
-  return Array.prototype.map.apply(list, [callback]);
+fp.newMapApply = function (array, callback){
+  return Array.prototype.map.apply(array, [callback]);
 };
 
 fp.newMapBind = function (){};
 
-// Filter Function
+// Filter Functions
 
-fp.newFilterCall = function (){};
+fp.newFilterCall = function (array, callback){
+  return Array.prototype.filter.call(array, callback);
+};
 
-fp.newFilterApply = function (){};
+fp.newFilterApply = function (array, callback){
+  return Array.prototype.filter.apply(array, [callback]);
+};
 
 fp.newFilterBind = function (){};
 
-// Reduce Function
+// Reduce Functions
 
-fp.newReduceCall = function (){};
+fp.newReduceCall = function (array, callback){
+  return Array.prototype.reduce.call(array, callback);
+};
 
-fp.newReduceApply = function (){};
+fp.newReduceApply = function (array, callback){
+  return Array.prototype.reduce.apply(array, [callback]);
+};
 
 fp.newReduceBind = function (){};
 
-// Concat Function
+// Concat Functions
 
-fp.newConcatCall = function (){};
+fp.newConcatCall = function (array, callback){
+  return Array.prototype.concat.call(array, callback);
+};
 
-fp.newConcatApply = function (){};
+fp.newConcatApply = function (array, callback){
+  return Array.prototype.concat.apply(array, [callback]);
+};
 
 fp.newConcatBind = function (){};
 
-// Splice Function
+// Splice Functions
 
-fp.newSpliceCall = function (){};
+fp.newSpliceCall = function (array, callback){
+  return Array.prototype.splice.call(array, callback);
+};
 
-fp.newSpliceApply = function (){};
+fp.newSpliceApply = function (array, callback){
+  return Array.prototype.splice.apply(array, [callback]);
+};
 
 fp.newSpliceBind = function (){};
