@@ -28,36 +28,36 @@ fp.newFilterBind = function (){};
 
 // Reduce Functions
 
-fp.newReduceCall = function (array, callback){
-  return Array.prototype.reduce.call(array, callback);
+fp.newReduceCall = function (array, callback, startHere){
+  return Array.prototype.reduce.call(array, callback, startHere);
 };
 
-fp.newReduceApply = function (array, callback){
-  return Array.prototype.reduce.apply(array, [callback]);
+fp.newReduceApply = function (array, callback, startHere){
+  return Array.prototype.reduce.apply(array, [callback], startHere);
 };
 
 fp.newReduceBind = function (){};
 
 // Concat Functions
 
-fp.newConcatCall = function (array, callback){
-  return Array.prototype.concat.call(array, callback);
+fp.newConcatCall = function (array, ...args){
+  return Array.prototype.concat.call(array, ...args);
 };
 
-fp.newConcatApply = function (array, callback){
-  return Array.prototype.concat.apply(array, [callback]);
+fp.newConcatApply = function (array, ...args){
+  return Array.prototype.concat.apply(array, [...args]);
 };
 
 fp.newConcatBind = function (){};
 
 // Splice Functions
 
-fp.newSpliceCall = function (array, callback){
-  return Array.prototype.splice.call(array, callback);
+fp.newSpliceCall = function (array, startHere, removeCount, ...args){
+  return Array.prototype.splice.call(array, startHere, removeCount, ...args);
 };
 
-fp.newSpliceApply = function (array, callback){
-  return Array.prototype.splice.apply(array, [callback]);
+fp.newSpliceApply = function (array, startHere, removeCount, ...args){
+  return Array.prototype.splice.apply(array, [startHere, removeCount, ...args]);
 };
 
 fp.newSpliceBind = function (){};
