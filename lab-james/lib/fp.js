@@ -2,7 +2,7 @@
 
 let functions = module.exports = {};
 
-//Map=============================================================================================
+//Map===================================================================================================
 
 functions.mapCall = function(array, callback){
 
@@ -27,7 +27,7 @@ functions.mapBind = function(){
 
 }.bind({array: mapArray, callback: mapCB});
 
-//Filter==========================================================================================
+//Filter================================================================================================
 
 functions.filterCall = function(array, callback){
 
@@ -52,7 +52,7 @@ functions.filterBind = function(){
 
 }.bind({array: filterArray, callback: filterCB});
 
-//Reduce=========================================================================================
+//Reduce================================================================================================
 
 functions.reduceCall = function(array, callback, initVal){
 
@@ -60,11 +60,11 @@ functions.reduceCall = function(array, callback, initVal){
 
 };
 
-functions.reduceApply = function(array, callback){
+functions.reduceApply = function(array, argsArray){
 
-  callback = Array.isArray(callback) ? callback : [callback];
+  argsArray = Array.isArray(argsArray) ? argsArray : [argsArray];
 
-  return Array.prototype.reduce.apply(array, callback);
+  return Array.prototype.reduce.apply(array, argsArray);
 
 };
 
@@ -76,3 +76,54 @@ functions.reduceBind = function(){
   return Array.prototype.reduce.call(this.array, this.callback);
 
 }.bind({array: reduceArray, callback: reduceCB});
+
+//Concat================================================================================================
+
+functions.concatCall = function(array1, array2){
+
+  return Array.prototype.concat.call(array1, array2);
+
+};
+
+functions.concatApply = function(array1, argsArray){
+
+  argsArray = Array.isArray(argsArray) ? argsArray : [argsArray];
+
+  return Array.prototype.concat.apply(array1, argsArray);
+
+};
+
+let concatArray1 = [1, 2, 3];
+let concatArray2 = [4, 5, 6];
+
+functions.concatBind = function(){
+
+  return Array.prototype.concat.call(this.array1, this.array2);
+
+}.bind({array1: concatArray1, array2: concatArray2});
+
+//Splice================================================================================================
+
+
+
+functions.spliceCall = function(array, index, deletes, adds){
+
+  let spliceArray = array;
+
+  Array.prototype.splice.call(spliceArray, index, deletes, adds);
+
+  return spliceArray;
+
+};
+
+functions.spliceApply = function(array, argsArray){
+
+  let spliceArray = array;
+
+  argsArray = Array.isArray(argsArray) ? argsArray : [argsArray];
+
+  Array.prototype.splice.apply(array, argsArray);
+
+  return spliceArray;
+
+};

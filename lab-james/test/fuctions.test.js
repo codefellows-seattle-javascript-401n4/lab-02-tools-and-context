@@ -164,3 +164,81 @@ describe('reduceBind', function(){
   });
 
 });
+
+//==================================================================================================
+
+describe('concatCall', function(){
+
+  it('concatCall 1: calls concat correctly', function(){
+
+    expect(fp.concatCall([1, 2, 3], [4, 5, 6])).toEqual([1, 2, 3, 4, 5, 6]);
+
+  });
+
+  it('concatCall 2: calls concat correctly', function(){
+
+    expect(fp.concatCall(['red', 'blue', 'green'], ['white', 'yellow', 'purple'])).toEqual(['red', 'blue', 'green', 'white', 'yellow', 'purple']);
+
+  });
+
+});
+
+//==================================================================================================
+
+describe('concatApply', function(){
+
+  it('concatApply 1: applies concat correctly', function(){
+
+    expect(fp.concatApply([1, 2, 3], [4, 5, 6])).toEqual([1, 2, 3, 4, 5, 6]);
+
+  });
+
+  it('concatApply 2: applies concat correctly', function(){
+
+    expect(fp.concatApply(['red', 'blue', 'green'], ['white', 'yellow', 'purple'])).toEqual(['red', 'blue', 'green', 'white', 'yellow', 'purple']);
+
+  });
+
+});
+
+//======================================================================================================
+
+describe('concatBind', function(){
+
+  it('concatBind: binds concat correctly', function(){
+
+    expect(fp.concatBind()).toEqual([1, 2, 3, 4, 5, 6]);
+
+  });
+
+});
+
+//======================================================================================================
+
+describe('spliceCall', function(){
+
+  it('spliceCall 1: calls splice correctly', function(){
+
+    expect(fp.spliceCall(['a', 'b', 'c'], 3, 0, 'd')).toEqual(['a', 'b', 'c', 'd']);
+
+  });
+
+  it('spliceCall 2: calls splice correctly', function(){
+
+    expect(fp.spliceCall(['cat', 'dog', 'mouse', 'monkey'], 3, 1)).toEqual(['cat', 'dog', 'mouse']);
+
+  });
+
+});
+
+//======================================================================================================
+
+// describe('spliceApply', function(){
+//
+//   it('spliceApply 1: applies splice correctly', function(){
+//
+//     expect(fp.spliceApply([1, 2, 3], [1, 2])).toEqual([1, 3]);
+//
+//   });
+//
+// });
