@@ -60,11 +60,11 @@ module.exports = {
         
         if (bool) {
             (testType('number', this.values) === true) ?
-                returnValue = Array.prototype.map.call(this.values, cb) :
+                returnValue = Array.prototype.filter.call(this.values, cb) :
                 returnValue = null;
         } else {
             (testType('number', this.badValues) === true) ?
-                returnValue = Array.prototype.map.call(this.values, cb) :
+                returnValue = Array.prototype.filter.call(this.values, cb) :
                 returnValue = null;
         } 
             
