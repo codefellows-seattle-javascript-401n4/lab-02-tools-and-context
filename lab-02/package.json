@@ -1,0 +1,19 @@
+{
+  "name": "lab-david",
+  "version": "1.0.0",
+  "description": "Standard Package File for Labs",
+  "main": "/test/test.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
