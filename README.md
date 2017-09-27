@@ -16,15 +16,16 @@
 * include the standard .eslintrc
 * make a lint script for running eslint
 * make a test script for running mocha
-* make a `lib/fp.js` for holding the following methods
-  * create stand alone `map`, `filter`, `reduce`, `concat`, and `splice` using  call, bind, and apply 
+* make a `lib/
+` for holding the following methods
+  * create stand alone `map`, `filter`, `reduce`, `concat`, and `splice` using  call, bind, and apply
   * the standlone functions should have the signature `(array, ...args) => array`
 * make a CLI `index.js` that will use your new `map` function to UpperCase all command line args and print them to the screen
 
 # Tests
 * Write two tests for each method in `lib/fp.js`
 
-## Bonus 1pt 
+## Bonus 1pt
 * Create an exception handler node module that accepts an error object and logs based on severity
 
 ## Rubric:
@@ -32,4 +33,4 @@
 * Passes eslint: 2Pts
 * Package.json: 3pts
 * Scripts & Tests: 3pts
-* Stretch: 2pts 
+* Stretch: 2pts
