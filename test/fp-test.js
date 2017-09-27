@@ -92,3 +92,24 @@ describe('Reduce Bind', function(){
     expect(result).toEqual(10);
   });
 });
+
+describe('Splice Call', function(){
+  it('remove the first two indexs in an array', function(){
+    let result = fp.spliceCall([1,2,3,4],2,0);
+    expect(result).toEqual([3,4]);
+  });
+});
+
+describe('Splice Apply', function(){
+  it('remove the first two indexs in an array', function(){
+    let result = fp.spliceApply([1,2,3,4], 2);
+    expect(result).toEqual([3,4]);
+  });
+});
+
+describe('Splice Bind', function(){
+  it('remove the first two indexs in an array', function(){
+    let result = fp.spliceBind([1,2,3,4],2,0);
+    expect(result).toEqual([3,4]);
+  });
+});
