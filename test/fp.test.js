@@ -165,7 +165,7 @@ describe('fp.concatApply', function(){
 // splice tests
 
 describe('fp.spliceCall', function(){
-  it('should give just the first 3 index items of an array', function(){cd
+  it('should give just the first 3 index items of an array', function(){
     expect(fp.spliceCall([1,2,3,4,5,6], 0, 3)).toEqual([1,2,3]);
   });
 });
