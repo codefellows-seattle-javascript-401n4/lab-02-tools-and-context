@@ -27,6 +27,15 @@ functions.mapBind = function(){
 
 }.bind({array: mapArray, callback: mapCB});
 
+let mapArray2 = ['red', 'blue', 'green'];
+let mapCB2 = index => index.toUpperCase();
+
+functions.mapBind2 = function(){
+
+  return Array.prototype.map.call(this.array, this.callback);
+
+}.bind({array: mapArray2, callback: mapCB2});
+
 //Filter================================================================================================
 
 functions.filterCall = function(array, callback){
@@ -51,6 +60,15 @@ functions.filterBind = function(){
   return Array.prototype.filter.call(this.array, this.callback);
 
 }.bind({array: filterArray, callback: filterCB});
+
+let filterArray2 = ['red', 'blue', 'green'];
+let filterCB2 = word => word.length > 3;
+
+functions.filterBind2 = function(){
+
+  return Array.prototype.filter.call(this.array, this.callback);
+
+}.bind({array: filterArray2, callback: filterCB2});
 
 //Reduce================================================================================================
 
@@ -77,6 +95,26 @@ functions.reduceBind = function(){
 
 }.bind({array: reduceArray, callback: reduceCB});
 
+let reduceArray2 = ['red', 'blue', 'green', 'red', 'green'];
+let reduceAcc = [];
+let reduceCB2 = (acc, index) => {
+
+  if(!acc.includes(index)){
+
+    acc.push(index);
+
+  }
+
+  return acc;
+
+};
+
+functions.reduceBind2 = function(){
+
+  return Array.prototype.reduce.call(this.array, this.callback, this.acc);
+
+}.bind({array: reduceArray2, callback: reduceCB2, acc: reduceAcc});
+
 //Concat================================================================================================
 
 functions.concatCall = function(array1, array2){
@@ -102,6 +140,15 @@ functions.concatBind = function(){
 
 }.bind({array1: concatArray1, array2: concatArray2});
 
+let concatArray3 = ['red', 'blue', 'green'];
+let concatArray4 = ['white', 'yellow', 'purple'];
+
+functions.concatBind2 = function(){
+
+  return Array.prototype.concat.call(this.array1, this.array2);
+
+}.bind({array1: concatArray3, array2: concatArray4});
+
 //Splice================================================================================================
 
 
@@ -110,7 +157,16 @@ functions.spliceCall = function(array, index, deletes, adds){
 
   let spliceArray = array;
 
-  Array.prototype.splice.call(spliceArray, index, deletes, adds);
+  //got this idea from Bryan Matthews on StackOverflow
+  if(arguments.length > 3){
+
+    Array.prototype.splice.call(spliceArray, index, deletes, adds);
+
+  } else {
+
+    Array.prototype.splice.call(spliceArray, index, deletes);
+
+  }
 
   return spliceArray;
 
@@ -127,3 +183,32 @@ functions.spliceApply = function(array, argsArray){
   return spliceArray;
 
 };
+
+let spliceBindArray = [1, 2, 3];
+let spliceIndex = 1;
+let spliceDeletes = 0;
+let spliceAdds = 4;
+
+functions.spliceBind = function(){
+
+  let spliceArray = spliceBindArray;
+
+  Array.prototype.splice.call(this.array, this.index, this.deletes, this.adds);
+
+  return spliceArray;
+
+}.bind({array: spliceBindArray, index: spliceIndex, deletes: spliceDeletes, adds: spliceAdds});
+
+let spliceBindArray2 = ['cat', 'dog', 'mouse'];
+let spliceIndex2 = 0;
+let spliceDeletes2 = 1;
+
+functions.spliceBind2 = function(){
+
+  let spliceArray = spliceBindArray2;
+
+  Array.prototype.splice.call(this.array, this.index, this.deletes);
+
+  return spliceArray;
+
+}.bind({array: spliceBindArray2, index: spliceIndex2, deletes: spliceDeletes2});
