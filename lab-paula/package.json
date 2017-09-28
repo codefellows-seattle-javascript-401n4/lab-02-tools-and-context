@@ -1,0 +1,24 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "call apply bind",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "eslint": "eslint --ext=.js,.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefellows-seattle-javascript-401n4/lab-02-tools-and-context.git"
+  },
+  "author": "Paula Mookerjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefellows-seattle-javascript-401n4/lab-02-tools-and-context/issues"
+  },
+  "homepage": "https://github.com/codefellows-seattle-javascript-401n4/lab-02-tools-and-context#readme",
+  "dependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
