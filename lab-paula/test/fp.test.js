@@ -21,12 +21,12 @@ describe('Map', function(){
     expect(fp.mapWithApply([ 0, 15, 1, 2, 8, 12], [a=>a+3])).toEqual([3, 18, 4, 5, 11, 15]);
   });
 
-  it('bind should return correct values even with non-numeric input as it is bound in the definition', function() {
-    expect(fp.mapWithBind('str', a=>a*3)).toEqual([ 3, 18, 4 ]);
+  it('bind should return null if a non-number is used in the array', function() {
+    expect(fp.mapWithBind([5, 6, '', 'Joe'], a=>a*3)).toEqual(null);
   });
 
-  it('bind should return correct values even with null input as it is bound in the definition', function() {
-    expect(fp.mapWithBind(null)).toEqual([ 3, 18, 4 ]);
+  it('bind should add 3 to every number in the array', function() {
+    expect(fp.mapWithBind( [0, 15, 1, 2, 8, 12], a=>a+3)).toEqual([ 3, 18, 4, 5, 11, 15 ]);
   });
 
 });
@@ -49,8 +49,12 @@ describe('Filter', function(){
     expect(fp.filterWithApply([ 0, 15, 1, 2, 8, 12], [a=>a<5])).toEqual([0, 1, 2]);
   });
 
-  it('bind should return correct values even with null input as it is bound in the definition', function() {
-    expect(fp.filterWithBind(null)).toEqual([0, 1]);
+  it('bind should return null if a non-number is used in the array', function() {
+    expect(fp.filterWithBind([5, 6, '', 'Joe'], a=>a<5)).toEqual(null);
+  });
+
+  it('bind should return an array with numbers less than 5', function() {
+    expect(fp.filterWithBind( [0, 15, 1, 2, 8, 12], a=>a<5)).toEqual([0, 1, 2]);
   });
 
 });
@@ -73,8 +77,12 @@ describe('Concat', function(){
     expect(fp.concatWithApply([ 4, 2, 1 ], [ 8, 99 ])).toEqual([ 4, 2, 1, 8, 99 ]);
   });
 
-  it('bind should return correct values even with null input as it is bound in the definition', function() {
-    expect(fp.concatWithBind(null)).toEqual([ 0, 15, 1, 8, 99 ]);
+  it('bind should return null if a non-number is used in the array', function() {
+    expect(fp.concatWithBind([ 4, 2, 1 ], [ 5, 'Joe'])).toEqual(null);
+  });
+
+  it('bind should return the two arrays correctly concatenated', function() {
+    expect(fp.concatWithBind([ 4, 2, 1 ], [ 8, 99 ])).toEqual([ 4, 2, 1, 8, 99 ]);
   });
 
 });
@@ -97,8 +105,12 @@ describe('Splice', function(){
     expect(fp.spliceWithApply([ 4, 2, 1 ], 2 )).toEqual(null);
   });
 
-  it('bind should return correct values even with null input as it is bound in the definition', function() {
-    expect(fp.spliceWithBind(null)).toEqual([ 1 ]);
+  it('bind should return null if input contains a non-number', function() {
+    expect(fp.spliceWithBind([ 5, 'Joe'], 2 )).toEqual(null);
+  });
+
+  it('bind should return a new array correctly spliced', function() {
+    expect(fp.spliceWithBind([ 4, 2, 1, 3, 7 ], 2 )).toEqual([ 1, 3, 7 ]);
   });
 
 
@@ -122,8 +134,12 @@ describe('Reduce', function(){
     expect(fp.reduceWithApply([ 4, 'hi' ], (prev, curr) => curr + prev, 0)).toEqual(null);
   });
 
-  it('bind should return correct values even with null input as it is bound in the definition', function() {
-    expect(fp.reduceWithBind(null)).toEqual(15);
+  it('bind should return null because the array contains a non-number', function() {
+    expect(fp.reduceWithBind([ 4, 'hi' ], (prev, curr) => curr + prev, 0)).toEqual(null);
+  });
+
+  it('bind should return a sum of the array elements', function() {
+    expect(fp.reduceWithBind([ 4, 2, 1, 3 ], (prev, curr) => curr + prev, 0)).toEqual(10);
   });
 
 });
