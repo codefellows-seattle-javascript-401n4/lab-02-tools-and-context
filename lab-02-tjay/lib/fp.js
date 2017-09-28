@@ -2,12 +2,12 @@
 
 const fp = module.exports = {};
 
-fp.map = (list, callback) => Array.prototype.map.call(list, callback);
+fp.map = (array, ...args) => Array.prototype.map.call(array, ...args);
 
-fp.filter = (list, callback) => Array.prototype.filter.call(list, callback);
+fp.filter = (array, ...args) => Array.prototype.filter.call(array, ...args);
 
-fp.reduce = (list, args) => Array.prototype.reduce.apply(list, args);
+fp.reduce = (array, ...args) => Array.prototype.reduce.apply(array, ...args);
 
-fp.concat = (list1, list2) => Array.prototype.concat.call(list1, list2);
+fp.concat = (array, ...args) => Array.prototype.concat.call(array, ...args);
 
-fp.splice = (list, args) => Array.prototype.splice.apply(list, args);
+fp.splice = (array, ...args) => Array.prototype.splice.apply(array, ...args);

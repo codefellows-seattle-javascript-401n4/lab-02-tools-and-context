@@ -10,6 +10,9 @@ describe('map test', () => {
   it(`should return ['a.', 'b.', 'c.', 'd.]`, () => {
     expect(fp.map('abcd', n => n + '.')).toEqual(['a.', 'b.', 'c.', 'd.']);
   });
+  it(`should return ['A', 'B', 'C', 'D]`, () => {
+    expect(fp.map('abcd', n => n.toUpperCase())).toEqual(['A', 'B', 'C', 'D']);
+  });
 });
 
 describe('filter test', () => {
@@ -50,8 +53,8 @@ describe('splice test', () => {
   });
 });
 
-describe('bind test', () => {
-  it('should return [2,3]', () => {
-    expect(fp.splice([1, 2], [1, 2])).toEqual([2,3]);
-  });
-});
+// describe('bind test', () => {
+//   it('should return [2,3]', () => {
+//     expect(fp.splice([1, 2], [1, 2])).toEqual([2,3]);
+//   });
+// });
