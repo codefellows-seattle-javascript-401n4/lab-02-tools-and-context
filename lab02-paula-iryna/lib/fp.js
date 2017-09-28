@@ -1,12 +1,20 @@
 'use strict';
 const fp = module.exports = {};
 
-fp.mapCall = ((list, callback) => Array.prototype.map.call(list, callback));
-fp.mapApply = ((list, callback) => Array.prototype.map.apply(list, callback));
+
+fp.mapCall = function(list, callback) {
+  if (!(Array.isArray(list))) return callback('first parameter must be array');
+  return Array.prototype.map.call(list, callback);
+};
+
+fp.mapApply = function(list, callback) {
+  if (!(Array.isArray(callback))) return callback('callback parameter must be an array');
+  return Array.prototype.map.apply(list, callback);
+};
 fp.getMapBoundFunction = function() {
   let obj ={
-    n : [2,6,13,20,55],
-    cb:(a=>a>a+15),
+    n : [2,6,13],
+    cb:(a=>a=a+15),
   };
   // Define a function
   let method =function(){
@@ -17,7 +25,7 @@ fp.getMapBoundFunction = function() {
 
   // Return bound function
   return mapBound;
-  //console.log( mapBound);
+
 };
 
 
@@ -62,7 +70,6 @@ fp.getConcatBoundFunction = function() {
     return Array.prototype.concat.call(this.n, this.l);
   };
   let concatBound = method.bind(obj);
-  // console.log(concatBound());
   return concatBound;
 };
 
