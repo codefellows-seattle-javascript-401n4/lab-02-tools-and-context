@@ -64,3 +64,18 @@ describe('concat test', () => {
     expect(result).toEqual([5,5,5]);
   });
 });
+
+describe('splice test', () => {
+  it('should return 3,4', () => {
+    let result = fp.spliceCall([2,3,4], 1,2);
+    expect(result).toEqual([3,4]);
+  });
+  it('should return 20', () => {
+    let result = fp.spliceApply([5,10,20], 2,1);
+    expect(result).toEqual([20]);
+  });
+  it('should return 19,20,21,22', () => {
+    let result = fp.spliceBind([18,19,20,21,22], 1,1);
+    expect(result).toEqual([19,20,21,22]);
+  });
+});
