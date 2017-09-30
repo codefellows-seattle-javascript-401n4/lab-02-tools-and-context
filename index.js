@@ -2,7 +2,15 @@
 
 
 const fp = require('./lib/fp.js');
-const expect = require('expect');
 
 
-fp.mapCall([1,2,3],n => n * 3);
+
+let dataArray = process.argv;
+
+
+function upperCase(){
+  let dataUp = fp.mapCall(dataArray, letter => letter.toUpperCase());
+  console.log(dataUp);
+  return dataUp;
+}
+upperCase();
