@@ -49,3 +49,18 @@ describe('reduce test', () => {
     expect(result).toEqual(19);
   });
 });
+
+describe('concat test', () => {
+  it('should return 1,2,-5', () => {
+    let result = fp.concatCall([1,2], - 5);
+    expect(result).toEqual([1,2,-5]);
+  });
+  it('should return 3,4,10', () => {
+    let result = fp.concatApply([3,4], 10);
+    expect(result).toEqual([3,4,10]);
+  });
+  it('should return 5,5,5', () => {
+    let result = fp.concatBind([5,5], 5);
+    expect(result).toEqual([5,5,5]);
+  });
+});
