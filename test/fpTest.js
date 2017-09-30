@@ -29,4 +29,23 @@ describe('filter test', () => {
     let result = fp.filterApply([3,4,5], n => n < 1);
     expect(result).toEqual([]);
   });
+  it('should return [20,40,60]', () => {
+    let result = fp.filterBind([5,10,15,20,40,60], n => n > 16);
+    expect(result).toEqual([20,40,60]);
+  });
+});
+
+describe('reduce test', () => {
+  it('should return 9', () => {
+    let result = fp.reduceCall([2,3,4], (acc,cur) => acc + cur);
+    expect(result).toEqual(9);
+  });
+  it('should return 54', () => {
+    let result = fp.reduceApply([10,10,34],(acc,cur) => acc + cur);
+    expect(result).toEqual(54);
+  });
+  it('should return 19', () => {
+    let result = fp.reduceBind([9,9,1], (acc,cur) => acc + cur);
+    expect(result).toEqual(19);
+  });
 });
