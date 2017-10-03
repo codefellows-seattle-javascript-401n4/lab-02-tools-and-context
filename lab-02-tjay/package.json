@@ -1,0 +1,16 @@
+{
+  "name": "lab-02-tjay",
+  "version": "1.0.0",
+  "description": "Lab for TJay",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "T.Jay",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^4.7.2",
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  }
+}
