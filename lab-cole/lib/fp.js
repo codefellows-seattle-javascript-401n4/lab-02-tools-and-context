@@ -1,78 +1,77 @@
-'use script';
+'use strict';
 
 const fp = module.exports = {};
 
-
 //Map functions with Call, Bind, and Apply
-function mapCall(array, cb) {
-    return Array.prototype.map.call(array, cb);
+fp.mapCall = (arr, cb) => {
+  return Array.prototype.map.call(arr, cb);
 };
 
-    //TODO: syntax from MDN doesn't make sense...?
-function mapBind(array, cb) {
-    return Array.prototype.map.call(this.array, this.cb);
-}.bind(thisArray[array[cb]]);
+fp.mapBind = (arr, cb) => {
+  let array = Array.prototype.map.bind(arr);
+  return array(cb);
+};
 
-function mapApply(array, cb) {
-    return cb ? Array.prototype.map.apply(array, cb) : null;
+fp.mapApply = (arr, cb) => {
+  return Array.prototype.map.apply(arr, [cb]);
 };
 
 
 //Filter functions with Call, Bind, and Apply
-function filterCall(array, cb) {
-    return Array.prototype.filter.call(array, cb);
+fp.filterCall = (arr, cb) => {
+  return Array.prototype.filter.call(arr, cb);
 };
 
-    //TODO: syntax from MDN doesn't make sense...?
-function filterBind(array, cb) {
-    return Array.prototype.filter.call(this.array, this.cb);
-}.bind(thisArray[array[cb]]);
+fp.filterBind = (arr, cb) => {
+  let array = Array.prototype.filter.bind(arr);
+  return array(cb);
+};
 
-function filterApply(array, cb) {
-    return cb ? Array.prototype.filter.apply(array, cb) : null;
+fp.filterApply = function (arr, cb) {
+  return Array.prototype.filter.apply(arr, [cb]);
 };
 
 
 //Reduce functions with Call, Bind, and Apply
-function reduceCall(array, cb) {
-    return Array.prototype.reduce.call(array, cb);
+fp.reduceCall = function (arr, cb) {
+  return Array.prototype.reduce.call(arr, cb);
 };
 
-    //TODO: syntax from MDN doesn't make sense...?
-function reduce(array, cb) {
-    return Array.prototype.reduce.call(this.array, this.cb);
-}.bind(thisArray[array[cb]]);
+fp.reduceBind = function (arr, cb) {
+  let array = Array.prototype.reduce.bind(arr);
+  return array(cb);
+};
 
-function reduceApply(array, cb) {
-    return cb ? Array.prototype.reduce.apply(array, cb) : null;    
+fp.reduceApply = function (arr, cb) {
+  return Array.prototype.reduce.apply(arr, [cb]);    
 };
 
 
 //Concat functions with Call, Bind, and Apply
-function concatCall(array, cb) {
-    return Array.prototype.cancat.call(array, cb);
+fp.concatCall = function (arr, cb) {
+  return Array.prototype.concat.call(arr, cb);
 };
 
-    //TODO: syntax from MDN doesn't make sense...?
-function concatBind(array, cb) {
-    return Array.prototype.concat.call(this.array, this.cb);
-}.bind(thisArray[array[cb]]);
+fp.concatBind = function (arr, cb) {
+  let array = Array.prototype.concat.bind(arr);
+  return array.concat(cb);
+};
 
-function concatApply(array, cb) {
-    return cb ? Array.prototype.concat.apply(array, cb) : null;
+fp.concatApply = function (arr, cb) {
+  return Array.prototype.concat.apply(arr, [cb]);
 };
 
 
 //Splice functions with Call, Bind, and Apply
-function spliceCall(array, cb) {
-    return Array.prototype.splice.call(array, cb);
+fp.spliceCall = function (arr, args) {
+  return Array.prototype.splice.call(arr, ...args);
 };
 
-    //TODO: syntax from MDN doesn't make sense...?
-function spliceBind(array, cb) {
-    return Array.prototype.splice.call(this.array, this.cb);
-}.bind(thisArray[array[cb]]);
+fp.spliceBind = function (arr, args) {
+  let array = Array.prototype.splice.bind(arr);
+  return array(args);
+};
 
-function spliceApply(array, cb) {
-    return cb ? Array.prototype.splice.apply(array, cb) : null;
+fp.spliceApply = function (arr, args) {
+  return Array.prototype.splice.apply(arr, [args]);
 };

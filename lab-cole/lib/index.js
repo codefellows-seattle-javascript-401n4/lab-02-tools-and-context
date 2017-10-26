@@ -1,3 +1,0 @@
-'use script';
-
-//no clue...too brain dead...
