@@ -34,12 +34,12 @@ fp.newFilterBind = function (array, callback){
 
 // Reduce Functions
 
-fp.newReduceCall = function (array, callback, startHere){
-  return Array.prototype.reduce.call(array, callback, startHere);
+fp.newReduceCall = function (array, callback){
+  return Array.prototype.reduce.call(array, callback);
 };
 
-fp.newReduceApply = function (array, callback, startHere){
-  return Array.prototype.reduce.apply(array, [callback], startHere);
+fp.newReduceApply = function (array, callback){
+  return Array.prototype.reduce.apply(array, [callback]);
 };
 
 fp.newReduceBind = function (array, callback){
@@ -64,15 +64,15 @@ fp.newConcatBind = function (array, ...args){
 
 // Splice Functions
 
-fp.newSpliceCall = function (array, startHere, removeCount, ...args){
-  return Array.prototype.splice.call(array, startHere, removeCount, ...args);
+fp.newSpliceCall = function (array, startHere, endIt){
+  return Array.prototype.splice.call(array, startHere, endIt);
 };
 
-fp.newSpliceApply = function (array, startHere, removeCount, ...args){
-  return Array.prototype.splice.apply(array, [startHere, removeCount, ...args]);
+fp.newSpliceApply = function (array, startHere, endIt){
+  return Array.prototype.splice.apply(array, [startHere, endIt]);
 };
 
-fp.newSpliceBind = function (array, callback){
+fp.newSpliceBind = function (array, startHere, endIt){
   let bound = Array.prototype.splice.bind(array);
-  return bound(callback);
+  return bound(startHere, endIt);
 };
