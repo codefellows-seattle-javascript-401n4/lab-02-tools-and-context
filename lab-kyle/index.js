@@ -1,4 +1,4 @@
 'use strict';
 
-const fp = require(__dirname + '/lib/fp.js');
-const handler = require(__dirname + '/lib/handler.js');
+const fp = require('../lib/fp.js');
+const handler = require('../lib/handler.js');
