@@ -2,105 +2,77 @@
 
 const fp = module.exports = {};
 
-let trueArray = function(array) {
-  if(array.isArray) {
-    return array;
-  } else {
-    return null;
-  }
-};
-
 // Map Functions
 
 fp.newMapCall = function (array, callback){
-  return trueArray(array) ? Array.prototype.map.call(array, callback) : null;
+  return Array.prototype.map.call(array, callback);
 };
 
 fp.newMapApply = function (array, callback){
-  return trueArray(array) ? Array.prototype.map.apply(array, [callback]) : null;
+  return Array.prototype.map.apply(array, [callback]);
 };
 
 fp.newMapBind = function (array, callback){
-  if(trueArray(array)){
-    let bound = Array.prototype.map.bind(array);
-    return bound(callback);
-  } else {
-    return  null;
-  }
+  let bound = Array.prototype.map.bind(array);
+  return bound(callback);
 };
 
 // Filter Functions
 
 fp.newFilterCall = function (array, callback){
-  return trueArray(array) ? Array.prototype.filter.call(array, callback) : null;
+  return Array.prototype.filter.call(array, callback);
 };
 
 fp.newFilterApply = function (array, callback){
-  return trueArray(array) ? Array.prototype.filter.apply(array, [callback]) : null;
+  return Array.prototype.filter.apply(array, [callback]);
 };
 
 fp.newFilterBind = function (array, callback){
-  if(trueArray(array)){
-    let bound = Array.prototype.filter.bind(array);
-    return bound(callback);
-  } else {
-    return  null;
-  }
+  let bound = Array.prototype.filter.bind(array);
+  return bound(callback);
 };
 
 // Reduce Functions
 
 fp.newReduceCall = function (array, callback, startHere){
-  return trueArray(array) ? Array.prototype.reduce.call(array, callback, startHere) : null;
+  return Array.prototype.reduce.call(array, callback, startHere);
 };
 
 fp.newReduceApply = function (array, callback, startHere){
-  return trueArray(array) ? Array.prototype.reduce.apply(array, [callback], startHere) : null;
+  return Array.prototype.reduce.apply(array, [callback], startHere);
 };
 
 fp.newReduceBind = function (array, callback){
-  if(trueArray(array)){
-    let bound = Array.prototype.reduce.bind(array);
-    return bound(callback);
-  } else {
-    return  null;
-  }
+  let bound = Array.prototype.reduce.bind(array);
+  return bound(callback);
 };
 
 // Concat Functions
 
 fp.newConcatCall = function (array, ...args){
-  return trueArray(array) ? Array.prototype.concat.call(array, ...args) : null;
+  return Array.prototype.concat.call(array, ...args);
 };
 
 fp.newConcatApply = function (array, ...args){
-  return trueArray(array) ? Array.prototype.concat.apply(array, [...args]) : null;
+  return Array.prototype.concat.apply(array, [...args]);
 };
 
 fp.newConcatBind = function (array, ...args){
-  if(trueArray(array)){
-    let bound = Array.prototype.concat.bind(array);
-    return bound(...args);
-  } else {
-    return  null;
-  }
+  let bound = Array.prototype.concat.bind(array);
+  return bound(...args);
 };
 
 // Splice Functions
 
 fp.newSpliceCall = function (array, startHere, removeCount, ...args){
-  return trueArray(array) ? Array.prototype.splice.call(array, startHere, removeCount, ...args) : null;
+  return Array.prototype.splice.call(array, startHere, removeCount, ...args);
 };
 
 fp.newSpliceApply = function (array, startHere, removeCount, ...args){
-  return trueArray(array) ? Array.prototype.splice.apply(array, [startHere, removeCount, ...args]) : null;
+  return Array.prototype.splice.apply(array, [startHere, removeCount, ...args]);
 };
 
 fp.newSpliceBind = function (array, callback){
-  if(trueArray(array)){
-    let bound = Array.prototype.splice.bind(array);
-    return bound(callback);
-  } else {
-    return  null;
-  }
+  let bound = Array.prototype.splice.bind(array);
+  return bound(callback);
 };
