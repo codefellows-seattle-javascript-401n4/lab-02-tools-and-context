@@ -137,16 +137,16 @@ describe('newSpliceApply', function(){
 
   it('should remove 2 indicies', function(){
 
-    expect(fp.newSpliceApply(testArray,1,2)).toEqual([2,3]);
+    expect(fp.newSpliceApply(testArray,0,2)).toEqual([1,4]);
 
   });
 });
 
 describe('newSpliceBind', function(){
 
-  it('should remove 2 indicies', function(){
+  it('should return empty', function(){
 
-    expect(fp.newSpliceBind(testArray,1,2)).toEqual([2,3]);
+    expect(fp.newSpliceBind(testArray,0,0)).toEqual([]);
 
   });
 });
