@@ -1,0 +1,25 @@
+{
+  "name": "lab-kyle",
+  "version": "0.0.1",
+  "description": "Package for lab-02",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krichey15/lab-02-tools-and-context.git"
+  },
+  "author": "richey.kyle.i@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3",
+    "eslint": "^4.7.2"
+  },
+  "homepage": "https://github.com/krichey15/lab-02-tools-and-context#readme"
+}
