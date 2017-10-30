@@ -3,6 +3,23 @@
 const fp = require('./lib/fp.js');
 // const handler = require('../lib/handler.js');
 
-let testArray = [1,2,3,4];
+let capitalize = function(){
+  console.log('in function');
+  let commandArgs = process.argv.splice(2, process.argv.length);
 
-console.log(fp.newConcatBind(testArray, 56));
+  if(commandArgs.length === 0){
+    return console.log('need more arguments');
+  } else {
+
+    console.log('Before Map: ' + commandArgs);
+//WHY IS THIS NOT WORKING?
+
+    fp.newMapApply(commandArgs, (arg) => {
+      arg.toUpperCase();
+      console.log('in map');
+    });
+    console.log('After Map: ' + commandArgs);
+  }
+};
+
+capitalize();
