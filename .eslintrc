@@ -3,13 +3,13 @@
     "err": true,
     "req": true,
     "res": true,
-    "next": true
+    "next": true,
   },
   "env": {
     "es6": true,
     "node": true,
     "browser": true,
-    "mocha": true
+    "mocha": true,
   },
   "rules": {
     "no-console": "off",
