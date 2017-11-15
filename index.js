@@ -1,9 +1,10 @@
 'use strict';
 
 const fp = require('/.lib/fp.js');
+// const fp = require('/.lib/fp_test.js');
 
-let numbers = [1,2,3,4,5];
-let myCallback = n => n*5;
+let numbers = [2,4,6,8];
+let myCallback = numbers => numbers*0.5;
 
 console.log(fp.mapCall(numbers,myCallback));
 console.log(fp.mapApply(numbers,[myCallback]));
